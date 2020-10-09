@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .wrapper{
+        width: 400px;
+        height: 400px;
+        border:5px solid #ddeeff;
+        margin: auto;
+    }
+    select{
+        width: 100%;
+        height: 40px;
+        background:darkblue;
+        color:white;
+        font-size: 30px;
+    }
+    #content{
+        width: 100%;
+        height:360px;
+        background: black;
+    }
+
+</style>
+<script>
+    function setColor(){
+        //문서내에 select박스에 현재 선택된 값을 추출해보자!
+       var sel= document.getElementById("sel");
+       console.log("당신이 선택한 옵션의 값은",sel.value);
+
+    // [방법1]
+    //문서내의 content 영역에 추출한 값을 이용하여 배경색상을 부여하자~
+    //   var color =  document.getElementById("content");
+    //   color.style.background=sel.value;
+    }
+
+    // [방법2]
+    function setColor2(c){
+        var color =  document.getElementById("content");
+        color.style.background=c;
+    }
+
+</script>
+</head>
+<body>
+    <div class="wrapper">
+        <select id="sel" onchange="setColor2(this.value)" >
+            <option value="red">빨</option>
+            <option value="orange">주</option>
+            <option value="yellow">노</option>
+            <option value="green">초</option>
+            <option value="blue">파</option>
+            <option value="navy">남</option>
+            <option value="purple">보</option>
+        </select>
+        <div id="content"></div>
+    </div>
+</body>
+</html>

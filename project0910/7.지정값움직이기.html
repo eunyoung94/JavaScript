@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+    #box{
+        width:100px;
+        height:100px;
+        background:black;
+        position:absolute;
+        left: 0px;
+        top:200px;
+    }
+
+</style>
+<script>
+
+var step=5;//움직인값
+var x=0; //x축값
+// 움직임을 주는값 
+var targetX=0;
+function move(){
+targetX=document.getElementById("target").value;
+//400px까지 step+=5; 400px넘어가면 step -=5;
+x += step;
+step = (x<=0||x>=targetX)?-step:step;
+// step=(0<=x&&x<=400)?step:-step; d이것도 가능 
+
+document.getElementById("box").style.left=x+"px";
+document.getElementById("info").value=x+"px";
+
+}
+function auto(){
+    setInterval("move()",30);
+}
+
+
+
+
+
+</script>
+</head>
+<body>
+    <button onclick ="move()">움직이기</button>
+    <button onclick ="auto()">자동</button>
+    <input type ="text"id="info";>
+    <input id="target" type="text" placeholder="목표값을 입력하세요">
+    <div id="box"></div>
+</body>
+</html>

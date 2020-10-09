@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #wrapper{
+        background-image: url(https://windowsforum.kr/files/attach/images/2966154/858/678/002/1af1b374fb6a942b4aee309fc6779ec4.jpg);
+
+        background-size:1024px 768px;
+        width:1024px; 
+        height:768px;
+        margin:auto;
+        position:relative;
+        overflow:hidden;
+   }
+   #bird{
+       width: 100px;
+        height:100px;
+        position:absolute;
+        left:100px;
+        top:50px;
+   }
+</style>
+<script>
+    var x=100;
+    var y =50;
+    function joystick(){
+       console.log("당신이 누른 키의 아스키코드는",event.keyCode);
+       if(event.keyCode==37){
+           console.log("왼쪽으로 이동할래요");
+           moveLeft();
+       }
+       else if(event.keyCode==38){
+           console.log("위로 이동할래요");
+           moveUp();
+       }
+       else if(event.keyCode==39){
+           console.log("오른쪽으로 이동할래요");
+           moveRight();
+       }
+       else if(event.keyCode==40){
+           console.log("아래로 이동할래요");
+           moveDown();
+       }
+   }
+
+   function moveLeft(){
+       x -= 5;
+       document.getElementById("bird").style.left=x+"px";
+   }
+   function moveRight(){
+       x+=5;
+       document.getElementById("bird").style.left=x+"px";
+   }
+   function moveUp(){
+       y -= 5;
+       document.getElementById("bird").style.top=y+"px";
+   }
+   function moveDown(){
+       y+=5;
+       console.log("y값은: ",y);
+       document.getElementById("bird").style.topt=y+"px";
+   }
+</script>
+
+</head>
+<body onkeyDown="joystick()">
+    <div id ="wrapper">
+        <img id="bird"src="../images/hero/cuby.png"/>
+    </div>
+    
+</body>
+</html>

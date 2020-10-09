@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var wrapper;
+    var ball;
+    var x=0;
+    var y=0;
+    var stepX=5;
+    var stepY=4;
+    var flag=true;
+
+    function init(){
+        createButton();
+        wrapper=document.createElement("div");
+        wrapper.style.width=600+"px";
+        wrapper.style.height=600+"px";
+        wrapper.style.background="gray";
+        wrapper.style.margin="auto";
+        wrapper.style.position="relative";
+        document.body.appendChild(wrapper);
+
+        ball=document.createElement("img");
+        ball.src="../images/마리오불.png";
+        ball.style.width=100+"px";
+        ball.style.height=100+"px";
+        ball.style.position="absolute";
+        ball.style.left=100+"px";
+        ball.style.top=50+"px";
+        wrapper.appendChild(ball);
+    }
+    function createButton(){
+        var bt1=document.createElement("button");//수동
+        var bt2=document.createElement("button");//자동
+        var bt3=document.createElement("button");//일시정지
+
+        bt1.addEventListener("click",function(){
+            move();
+        });
+
+        bt2.addEventListener("click",function(){
+            setInterval("move()",5); // 5/1000 분
+            bt2.disabled=true;
+        });
+
+        bt3.addEventListener("click",function(){
+            flag =!flag;
+        });
+
+        bt1.innerText="수동";
+        bt2.innerText="자동";
+        bt3.innerText="일시정지";
+        document.body.appendChild(bt1);
+        document.body.appendChild(bt2);
+        document.body.appendChild(bt3);
+    }
+
+    function move(){
+        if(flag){
+            x = x+ stepX;
+            y = y + stepY; 
+
+            ball.style.left= x+"px";
+            ball.style.top= y+"px";
+       
+            stepX=(x>=(parseInt(wrapper.style.width)-parseInt(ball.style.width)) || x<=0)?-stepX:stepX;
+            stepY=(y>=(parseInt(wrapper.style.width)-parseInt(ball.style.width)) || y<=0)?-stepY:stepY;
+
+
+        }
+    }
+</script>
+<body onload="init()">
+    
+</body>
+</html>

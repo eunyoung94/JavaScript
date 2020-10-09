@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--
+div를 포함하여, 모든 태그는 박스로 간주된다. 따라서 모두 네모로 생김,
+ 이런 특징을 가리켜 box model이라고 한다.
+고전적인 작업에서는 웹페이지의 레이아웃(배치)를 테이블로 작업해왓었다. 
+하지만, table은 그 목적 자체가 데이터를 보여주기 위한 용도이기 때문에 오늘날과 같이 
+웹표준을 중시하는 시기에는 사용하면 안된다. 
+해결책) Tag중 화면을 원하는 영억으로 나누어주는 div 태그를 이용하면된다. 
+-->
+
+<title>layout</title>
+<style>
+/*모든 .div마다 너비 속성등을 반복해서 작업하면 효율성이 떨어지므로, 가장 바깥쪽에 
+모든 dic를 가둬둘 또하나의 상자를 두면 편하다 */
+
+#wrapper{
+	width:600px;
+	border:2px solid black;
+	margin:auto;
+}/*화면 양측의 남는 공간을 양분하여, 가운데로 오게한다. */
+#box1{
+	background-color:red;
+}
+#box2{
+	background-color:yellow;
+	height:300px; /*박스의 높이로 제한하겠다.*/
+	/*overflow:hidden;넘쳐난 컨텐츠를 가려버린다.*/
+	overflow:scroll;
+}
+#box3{
+	background-color:blue;
+}
+</style>
+</head>
+
+<body>
+
+	<div id="wrapper">
+		<div id="box1">빨간색 영역</div>
+		<div id="box2">노랑영역Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</div>
+		<div id="box3">파란색영역</div>
+	</div>
+
+</head>
+</html>

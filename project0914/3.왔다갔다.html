@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+        body{
+        position:relative;
+    }
+</style>
+<script>
+    var box;
+    var bt;
+    var step=5;
+    var x;
+    function move(){
+        x=parseInt(box.style.left);
+        x += step;
+        step=(x<=0||x>=400)?-step:step;
+        box.style.left=x+"px";
+        box.innerText=x;
+    }
+    function createBt(){
+        bt1=document.createElement("button");
+        bt1.innerText="움직이기";
+        document.body.appendChild(bt1);
+        bt1.addEventListener("click",function(){
+            move();
+        });
+
+        bt2=document.createElement("button");
+        bt2.innerText="자동";
+        document.body.appendChild(bt2);
+        bt2.addEventListener("click",function(){
+            setInterval("move()",10);
+        });
+    }
+    function init(){
+
+        box=document.createElement("div");
+        box.style.width=100+"px";
+        box.style.height=100+"px";
+        box.style.left=0+"px";
+        box.style.top=50+"px";
+        box.style.background="red";
+        box.style.fontsize=45+"px";
+        box.style.color="yellow";
+        box.style.position="absolute";
+        document.body.appendChild(box);
+
+        createBt();
+    }
+    addEventListener("load",function(){
+        init();
+    });
+</script>
+</head>
+<body>   
+</body>
+</html>

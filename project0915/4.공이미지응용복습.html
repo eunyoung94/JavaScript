@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var count =0;
+    function creatBall(){
+        count++;
+        console.log("count is",count);
+        var ball = document.createElement("img");
+        var n = document.getElementById("txt").value;
+        var path = document.getElementById("path").value;
+        n=parseInt(n);
+
+        ball.src=(count%n!=0)?"../images/김정은.png":path;
+        ball.style.width=50+"px";
+        document.body.appendChild(ball);
+    }
+
+
+
+</script>
+<body>
+    <input id="txt"type="text" placeholder="몇번째마다공을넣는지..">
+    <input id="path"type="text" placeholder="사용될 이미지경로..">
+    <button id="pic" onclick="creatBall()">공</button>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .wrapper{
+        width:700px;
+        background:#f2f2f2;
+        margin:auto;
+        padding:20px;
+        color:black;
+        font-weight: bolder;
+        font-size:10px;
+    }
+    /* 입력 텍스트 박스에 대한 디자인 일괄처리 */
+    input[type=text], input[type=password],select, textarea{
+        width: 100%;
+        padding:8px;/*텍스트박스와 그 안에 글씨사이간격*/
+        border-radius: 4px;
+        box-sizing: border-box;/*전체너비에 border + padding 을 알아서 계산해준다. */
+        margin-top:6px;    
+        margin-bottom:16px; 
+    }
+    button{
+        background:palevioletred;
+        color:white;
+        padding :12px 20px; ;/*위, 아래 12px 양옆 20px*/
+        border:none;
+        border-radius: 10px;
+        cursor:pointer; /*손가락 모양으로 커서를 전환*/
+    }
+</style>
+<script src="http://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+    <script>
+        function init(){
+        CKEDITOR.replace( 'content' );//기존의 textarea를 , 편집기 디자인으로 대체한다. 
+        }
+        // 서버에 전송하기 위한 함수 ( 단 유효한 데이터인지 검증 후 전송)
+        function regist(){
+            // 폼태그는 사용자가 입력한 데이터를 서버에 전송하는 목적의 태그이므로 
+            // 폼태그의 속성을 이용하면, 전송할 서버의 주소, 전송방법 등을 지정할 수 있다. 
+            // 아래의 전송이라는 행위는 , 제대로 입력양식을 작성한 사람에게만 기회를 줘야한다. 
+            // 아이디를 입력했는지에 대한 여부를 체크해보자, 만일 안했다면, 아래 전송기능에 도달하면 안된다. 
+            var user=document.getElementById("user");
+            var pass=document.getElementById("password");
+            var AS=document.getElementById("AS");
+            var content=document.getElementById("content");
+            // alert("당신이 입력한 아이디는"+user.value);//텍스트 박스에는value라는 속성을 
+            //이용하여 현재 텍스트 박스에 입력되어 있는 문자열을 얻어올수 있다.  
+            if(user.value==""){ //아무것도 입력하지 않으면 ...
+            alert("손가락없냐?아이디 입력해라");
+            user.focus();//커서 자동올리기
+            }else if(pass.value==""){
+            alert("손가락없냐?비밀번호 입력해라");
+            pass.focus;
+            }else if(AS.value==""){
+            alert("손가락없냐?a/s 유형 골라라");  
+            AS.focus;  
+            }else if(content.value==""){
+            alert("손가락없냐?접수내용 써라"); 
+            content.focus;   
+            }else{
+            form1.action="http://naver.com"
+            form1.submit();
+            }//여기서 전송행위가 일어나는 시점!
+        }
+    </script>
+
+<body onLoad="init()">
+    <div class="wrapper">
+        <!--눈에 보여지지는 않지만  서버로 전송대상이 되는컴포넌트의 범위를 설정하는 용도로 사용한다. -->
+        <!--id와  name의 차이점 및 공통점 
+        공통점 : 식별자로서의 역할이다. 태그와 태그를 구분하기 위해서 , id나 name을 줄 수있다. 
+        차이점 : id는 말그대로 명칭이 유일해야하지만, name은 중복이 가능 -->
+        <form name = "form1"onSubmit="event.preventDefault()">
+            <label for ="user">접수자 ID</label>
+            <input type="text" id="user"placeholder="접수자 아이디 입력하세요"/>
+            
+            <label for ="password">password</label>
+            <input type="password" id="password"placeholder="비밀번호입력하세요"/>
+       
+            <label for ="AS">AS Type</label>
+            <select id="AS">
+                <option value="">a/s유형선택</option>
+                <option value="컴퓨터">컴퓨터</option>
+                <option value="tv">tv</option>
+                <option value="세탁기">세탁기</option>
+            </select>
+            <!--input type = text는 한줄만 입력, textare 멀티라인 -->
+            <laber for="content">접수하실내용</laber>
+            <textarea id="content" rows="10"></textarea>
+            <!--form태그안에button태그를 넣어두면, 무조건 현재폼을 서버에 전송하려는 특징이있다. 
+            따라서 페이지가 깜박 거리는 것을 느낄 수 있다. 
+            방지방법 ? onSubmit="event.preventDefault()"-->
+            <button onclick="regist()">등록하기</button>
+        </form> 
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    div{
+        widows: 400px;
+        height:300px;
+        background:khaki;
+        font-size:170px;
+        text-align:center;/*div안쪽 컨텐츠의 정렬*/
+    }
+</style>
+<script>
+    // 버튼을 누를때마다, 1씩 증가시키되 3의배수마다(3으로 나누었을때  나머지가 0)
+// 문서내의 div의 컨텐츠에 숫자대신 원하는 단어를 출력하자
+    var n=0;
+    var msg;
+    
+    function setCount(){
+    n++;//1증가
+    msg=(n%3==0)?"박수!":n
+    document.getElementById("box").innerText=msg;
+    }
+</script>
+</head>
+<body>
+    <button onClick="setCount()">카운터증가</button>
+    <div id="box">0</div>
+</body>
+</html>

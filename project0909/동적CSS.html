@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        margin:0px;
+    }
+    #wrapper{
+        width:800px;
+        height:600px;
+        margin:auto;
+    }
+    #control{
+        width:200px;
+        height:100%;
+        background:#ffbf00;
+        color:black;
+        font-size:larger;
+        float: left;
+    }
+    #result{
+        width:600px;
+        height:600px;
+        background:#ff99cc;
+        display:inline-block;
+        color:black;
+        font-size:larger;
+        float: left;
+    }
+
+    /*이미지에 애한 스타일*/
+    #pic{
+        width:100px;
+        height:100px;
+        transform:scaleX(1);
+        opacity:1;
+        transform:rotate(40deg);
+        border:1px dotted #CC33CC; 
+    }
+</style>
+<script>
+    // 문서내의 pic이라는 요소의 css의 너비를 늘린다.
+    var w =100;//너비를 결정짓는변수
+    var h =100;//높이를 결정짓는 변수
+    var scX =1; //x스케일 결정짓는 변수
+    var scY =1; //y스케일 결정짓는 변수
+    var op =1;//처음엔 불투명 (1이 불투명 0은 투명)
+    var ro = 0;
+    var b = 0;
+
+    function setWidth(){
+       w=w+10;
+        document.getElementById("pic").style.width=w+"px";
+    }
+    function setheight(){
+       h=h+10;
+        document.getElementById("pic").style.height=h+"px";
+    }
+    function setscaleX(){
+        scX = scX + 0.5;
+        document.getElementById("pic").style.transform="scaleX("+scX+")";
+    }
+    function setscaleY(){
+        scY = scY + 0.5;
+        document.getElementById("pic").style.transform="scaleY("+scY+")";
+    }
+    function setscaleY(){
+        scY = scY + 0.5;
+        document.getElementById("pic").style.transform="scaleY("+scY+")";
+    }
+    function setOpacity(){
+        op=op-0.1;
+        document.getElementById("pic").style.opacity=op;
+    }
+    function setRotate(){
+        // 문서내의 pic이라는 요소의css중 rotate를 변경한다. 
+        ro=ro+5;
+        document.getElementById("pic").style.transform="rotate("+ro+"deg)";
+    }
+    function setBorder(){
+        b=b+1;
+        document.getElementById("pic").style.border=b+"px dotted red";
+    }
+</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="control">
+            <ul>
+                <li>
+                    <button onclick="setWidth()"> width</button>
+                    <button onclick="setheight()">height</button>
+                </li>
+                <li>
+                    <button onclick="setscaleX()">scaleX</button>
+                    <button onclick="setscaleY()">scaleY</button>
+                </li>
+                <li>
+                    <button onclick="setOpacity()">opacity</button>
+                </li>
+                <li>
+                    <button onclick="setRotate()">rotate</button>
+                </li>
+                <li>
+                    <button onclick="setBorder()">border</button>
+                </li>
+                <li>
+                    <button>position</button>
+                </li>
+            </ul>
+
+        </div>
+        <div id="result">
+            <img src="../images/hero/cuby.png" id="pic"/>
+        </div>
+    </div>
+</body>
+</html>

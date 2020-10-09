@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    /* css에서 누군가를 가리킬때 사용하는 주체를 무엇이라 하는가?-->선택자 
+    그럼, 선택자가 될수 있는 것들은?
+    아이디 
+    태그명
+    클래스가 적용된 태그
+     */
+
+    /*아래와 같이 특정 요소를 가리키는 방법에 있어 실질적 이름이나, 아이디, 
+    클래스가 아닌 요소의 현재 상태를 이용하여 가리키는 방법을 유사클래스라고 한다. 
+    철수라는 친구)이름... 마스크를 쓴 철수 */
+    button:hover div{
+        background:yellow;
+        width:200px;
+        height:200px;f
+    }
+    p{
+        /*화면에서 사라지게한다.*/
+        display:none;
+        background:yellow;
+        color:black; 
+    }
+
+    div:hover p{
+        display:block;/*보이도록*/
+    }
+</style>    
+</head>
+<!-- 마우스 hover했을때 노란배경으로  -->
+<body>
+    <button class="mybt"id="bt">나버튼</button>
+    <div>
+        입력하기
+        <p>여기는p영역</p>
+    </div>
+</body>
+</html>

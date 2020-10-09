@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Document</title>
+<style>
+#box{
+	width:100px;
+	height: 100px;
+	background:red;
+/*이 css가 사용하게 될 에니메이션 프레임 이름*/
+position:absolute;/*부모 요소를 기준으로 나의 위치를 결정하는 방법: 여기서 부모는 body*/
+left:0px;
+top:100px;
+animation-name:aniBg;
+animation-duration:3s;
+animation-iteration-count:infinite;/*2번 반복해라*/
+animation-direction:alternate;/*반복방식을 번갈아가면서 하도록*/
+
+}
+/*에니메이션 프레임 정의*/
+@keyframes aniBg{
+	from{
+	background:red;
+	width:100px;
+	height:100px;
+	}
+	to{
+	background:pink;
+	left:700px;
+	}
+
+}
+</style>
+
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

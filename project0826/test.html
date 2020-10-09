@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="UTF-8">
+
+<title>Document</title>
+<!---스타일 시트를 적용하는 방법은 2가지가 있음 
+1. 인라인 방식 : 해당 태그에 직접 명시하는 방식
+					적용대상이 많을경우 효율성이 떨어짐 
+2. 임베디드 방식 : 스타일 태그에 일괄적용하는 방식 
+					문법형식 어떤태그를 대상으로 어떠한 처리를 할지를 표현하면 된다. 
+					예) td{font-size:9pt}
+
+--->
+<style>
+/*아래와 같은 문법형식에서 대상을 가리켜, 선택자라 한다. 
+ 선택자로 아이디를 사용할 경우 #을 붙인다.
+*/
+
+#t_name{
+	background: pink;
+}<blockquote><center></center></blockquote>
+body{ 
+	background: black;
+}
+button{
+	background:orange;
+	color:white;
+}
+
+select{
+	background:green;
+	color:white;
+}
+
+table{
+	border:10px dotted red;
+}
+input{
+	background:dodgerblue;
+	color:white;/*그냥 color는 글씨색을 의미한다.*/
+}
+td{
+	font-size:9pt;
+	background:gray;
+}
+</style>
+<head>
+
+<body>
+<table border = "2px" width = "400px"align="center" >
+<tr>
+<td colspan="2" align= "center">
+회원가입
+</td>
+</tr>
+
+<tr>
+<td>ID</td>
+<td><input type = "text" id="t_name"  placeholder = "아이디입력..."/></td>
+</tr>
+
+<tr>
+<td >PW</td>
+<td><input type = "text" placeholder = "비밀번호입력..."/></td>
+</tr>
+
+<tr>
+<td >Name</td>
+<td><input type = "text" placeholder = "이름입력..."/></td>
+</tr>
+
+<tr>
+<td>연락처</td>
+<td>
+	<select>
+			<option>010</option>
+			<option>011</option>
+			<option>012</option>
+			<option>013</option>
+			<option>014</option>
+</select>
+-<input type = "text" placeholder="앞자리"size="5"/>
+-<input type = "text"placeholder="뒷자리"size="5"/>
+
+
+<tr>
+<td>취미</td>
+<td>
+	여행<input type="checkbox"/>
+	독서<input type="checkbox"/>
+	운동<input type="checkbox"/>
+	it<input type="checkbox"/>
+<tr>
+<td>email</td>
+<td>
+<input type = "text" placeholder = "이메일입력..."/>@
+	<select>
+		<option>네이버</option>
+		<option>구글</option>
+		<option>한메일</option>
+	</select>
+</td>
+
+<tr>
+	<td>메일수신</td>
+	<td>
+	예<input type = "radio"name="receive"/>
+	아니오<input type = "radio"name="receive"/>
+	</td>
+</tr>
+
+<tr>
+	<td>우편번호</td>
+	<td>
+		<input type = "text" placeholder="우편번호"size="5" readonly/>
+		<button>우편번호 검색</button>
+	</td>
+</tr>
+
+<tr>
+	<td colspan = "2" align = "center">
+		<button size = "5">가입하기</button>	
+	</td>
+</tr>
+
+</table>
+</body>
+</head>
+</html>

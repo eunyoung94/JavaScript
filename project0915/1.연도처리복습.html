@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+    function init(){
+        
+        for(var i=2000;i>=1930;i--){
+        var op=document.createElement("option");//<option></option>
+        op.text=i; //<option>i</option>
+        var yy=document.getElementById("year");
+        yy.add(op);
+        }
+        
+        for(var j=1; j<=12;j++){
+        var op=document.createElement("option");
+        op.text=j; 
+        var mt=document.getElementById("month");
+        mt.add(op);
+        }
+    
+    }
+</script>
+</head>
+<body onLoad="init()">
+    <select  id="year">
+        <option >출생년</option>
+    </select>
+    <select id="month">
+        <option >출생월</option>
+    </select>
+</body>
+</html>

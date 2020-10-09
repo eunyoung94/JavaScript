@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width:200px;
+            height:200px;            
+            background:url(../images/cuby.png);
+            background-size:200px 200px; /* width 200, height 200*/
+            margin:auto;/*양옆의 남는 공간 즉 마진을 양분하여 동일하게
+            배분하는 속성*/
+        }
+        #mask{
+            width:200px;
+            height:200px;
+            background:black;
+        }
+        /*box에 hover시 mask 의 opacity를 투명하게 처리 */
+        #box:hover #mask{
+            animation: alpha 1s;            
+            animation-iteration-count: 1;
+        }
+        @keyframes alpha {
+            0%{opacity: 1}
+            50%{opacity: 0.4}
+            100%{opacity: 0.4}
+        }
+    </style>        
+</head>
+<body>
+    <!-- 이미지 배경을 가진 박스 -->
+    <div id="box">
+        <!-- 이미지를 가릴 마스크  -->
+        <div id="mask"></div>         
+    </div>
+
+</body>
+</html>

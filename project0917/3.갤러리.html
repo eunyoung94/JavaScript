@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .wrapper{
+        width:700px;
+        height:600px;
+       
+        margin:auto;
+        overflow: hidden;
+        border: 5px solid black;
+    }
+    .thumb{
+        width:150px;
+        height: 100%;
+        
+        float: left;
+        overflow:scroll;
+    }
+    .thumb img{
+        width:120px;
+        /* 너비만 주면 높이는 비율에 맞춰서 자동생성된다.  */
+        
+    }
+    .detail{
+        width:550px;
+        height: 100%;
+        
+        float: left;
+    }
+    .detail img{
+        width:450px;
+        padding:50px;
+    }
+
+</style>
+<script>
+        function setImage(n){
+            console.log("당신이 넘긴 숫자는"+n);
+// 큰 상세이미지의 src를 선택한 썸네일과 동일한 이미지 주소로 교체한다. 
+          var detail=  document.querySelector(".detail img");
+          detail.src="../images/"+n+".jpg"; //이변수는 호출자가 결정하도록하자..!
+    }
+</script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="thumb">
+            <img src="../images/1.jpg" onClick="setImage(1)"/>
+            <img src="../images/2.jpg" onClick="setImage(2)"/>
+            <img src="../images/3.jpg" onClick="setImage(3)"/>
+            <img src="../images/4.jpg" onClick="setImage(4)"/>
+            <img src="../images/5.jpg" onClick="setImage(5)"/>
+            <img src="../images/6.jpg" onClick="setImage(6)"/>
+            <img src="../images/7.jpg" onClick="setImage(7)"/>
+            <img src="../images/8.jpg" onClick="setImage(8)"/>
+            <img src="../images/9.jpg" onClick="setImage(9)"/>
+            <img src="../images/10.jpg" onClick="setImage(10)"/>
+        </div>   
+        <div class="detail">
+            <img src="../images/1.jpg"/>
+        </div>
+    </div>    
+</body>
+</html>

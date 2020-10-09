@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #wrapper{
+            width:800px;
+            height:600px;
+            background:black;
+            margin:auto;
+        }
+        #box1{
+            width: 100%;
+            height:550px;
+            background:darkslategray;
+            float: left;
+        }
+        #box2{
+            width:100%;
+            height:50px;
+            background:
+            clear:left;
+        }
+        #button1{
+            float:left; 
+            /*자식이 떠있으면 원칙상 부모의 overflow:hidden*/
+        }
+        #button2{
+            float:right;
+            overflow: hidden;
+        }
+        #box2 button{
+            font-size:25px;
+            padding:4px;/*4방면 모두 적용했다는것 */
+            padding-left:2px;
+            padding-right:2px;
+        }
+        #pic{
+            width:800px;
+            height:550px;
+        }
+    </style>
+    <script>
+       /* 내가원하는 코드 영역에 이름을 붙인 단위를 하뭇라 하고, 
+        우리는 지금 next() 이름의 코드영역을 정의한 것이다. 
+        따라서 원할때 아무때나 저 코드 
+        이름만 부르면, 이 코드 영역이 실행을 하게 된다. 
+        단, 내가 정의한 함수 영역을 사용자 정의 함수라 하고, 앞에 
+        function을 키워드를 붙여야한다. */
+        var n=1;//메모리에 0을 올리고, 그 0이 올려진 공간의 이름을 n으로 부르자
+        // 변수명을 붙여야 하는 이유? 나중에 원할때 부르기 위해서 
+        function pre(){
+        n=n-1;
+        document.getElementById("pic").src="../images/"+n+".jpg";
+        }
+        function next(){
+            //문서내의 pic이라는 요소에 src의값을 변경해보자!
+            // 대부분의 프로그래밍 언어에서는 식별성을 높이기 위해 복합어로 
+            // 구성된 단어에 대해 명명규칙이 있다. 
+            // 낙타등 표기법 : camel기법_ 단어와단어가 만나면 뒷 철자는 대문자로 표기해야함.
+            // 숫자와 문자를 대상으로 연산을 수행하면, 연산 자체가 불가하므로 즉 
+            // 문자가 연산에 껴있으면 전체가 문자가 된다. 
+             document.getElementById("pic").src="../images/"+n+".jpg";//문서내에 아이디가 ()요소를 얻어온다.
+         
+            // 이럴경우, 사용자는 이미지가 자동으로 교체되는 효과가 있음
+            // alert(n);
+            n=n+1;
+  
+        }
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="box1">
+            <img src="../images/1.jpg" id="pic">
+        </div>
+        <div id="box2">
+            <button id="button1"onClick="pre()">◀</button>
+            <button id="button2"onClick="next()">▶</button>
+        </buttom></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var n=prompt("몇번째마다 세균을 생성하겠습니까?")
+    n=parseInt(n);
+    var count = 0; //숫자가 누적되어 나가야하니 전역벼눗를 주자
+    function createBall(){
+        count++;
+        console.log("counter is : ",count);
+        var ball = document.createElement("img");
+        if(count%n!=0){
+            ball.src="../images/초록괴물.png";
+        }else{
+            ball.src="../images/세균.png";
+        }
+
+        ball.style.width=50+"px";
+        document.body.appendChild(ball);
+    }
+</script>
+<body>
+    <button onclick="createBall()">세균생성하기</button>
+</body>
+</html>

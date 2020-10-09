@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>block,inline속성</title>
+<style>
+#wrapper{
+	width:700px;
+	height:600px;
+	border:2px solid black;	
+}
+#wrapper1{
+border:2px solid black;
+}
+#box1{
+	background-color:red;
+	width:700px;
+	height:100px;
+}
+#box2{
+	background-color:orange;
+	width:200px; /*박스의 높이로 제한하겠다.*/
+	float:left;
+	height:400px;
+}
+#box3{
+	background-color:yellow;
+	float:left;
+	width:500px;
+	height:400px;
+}
+#box4{
+	background-color:green;
+	width:700px;
+	height:500px;
+}
+</style>
+</head>
+<body>
+<!--모든 태그는 박스이면서, 이 박스들은 두가지 유형으로 분류된다. 
+		1.block형 : 자신과 같은 행에 , 그 어떠한 태그도 존재할 수없다. 용납x   div는 block형
+						너비와 높이를 가질 수 있다. 
+		2.inline형 : 자신과 같은 행에 다른 태그요소와 공존이 가능하다. 
+						너비와 높이를 가질 수 없다. 			
+					-->
+	<div id="wrapper">	
+		<div id="box1">box1</div>
+
+				<div id="box2">box2</div>
+				<div id="box3">box3</div>
+		<div id="box4">box4</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    //변수명을 정의할 때는 반드시 영문으로 해야하고, 특수문자는 허용하지 않음
+    // $ 와 _(언더바) 는 가능하다. 
+    // 숫자로 시작해서도 안됨 ex) var 3x=6;
+    var n =1;
+    function next(){
+        n=n+1;
+        document.getElementById("pic").src="../images/hero/image"+n+".png";
+    }
+</script>
+</head>
+
+<body>
+    <img src="../images/hero/image1.png"id="pic"/>
+    <button onClick="next()">다음프레임보기</button>
+</body>
+</html>

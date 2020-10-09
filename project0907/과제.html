@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    div{float: left;}
+    #box1{ 
+            width:200px;
+            height:200px;
+            background:url(https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODAyMDVfMzYg%2FMDAxNTE3ODExODkwMDM2.WbQzkQluCMyS428eHq_FdeNflQRrMOyrhZDFQuUFQqog.QAfm2Y5vLq1QfZlzqnwx7jh8FqhgvtZM9FiZ5kVlNwog.PNG.3dupndown%2Fe42209176f1c2019ec52d992dbdc0f354a24b48baaaf6193ff550f4b39ec7807.png&type=sc960_832);
+            transform:scaleX(-1);
+            background-size:200px 200px;
+            margin:auto;
+    }
+    #box2{
+             width:200px;
+            height:200px;
+            background:url(https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODAyMDVfMzYg%2FMDAxNTE3ODExODkwMDM2.WbQzkQluCMyS428eHq_FdeNflQRrMOyrhZDFQuUFQqog.QAfm2Y5vLq1QfZlzqnwx7jh8FqhgvtZM9FiZ5kVlNwog.PNG.3dupndown%2Fe42209176f1c2019ec52d992dbdc0f354a24b48baaaf6193ff550f4b39ec7807.png&type=sc960_832);
+            background-size:200px 200px;
+            margin:auto;
+    }
+    #mask1{
+           
+            width:200px;
+            height:200px;
+            background:blueviolet;
+    }
+    #mask2{
+            
+            width:200px;
+            height:200px;
+            background:darkseagreen;
+    }
+    #box1:hover #mask1{  
+            display: block;
+            opacity:0.4;
+            animation:fadein 2s linear infinite;
+            }
+    #box2:hover #mask2{
+              display: block;
+              opacity:0.4;
+              animation:fadein 1s linear infinite;
+              }
+    @keyframes fadein{
+        0%{opacity:0;}
+        100%{opacity:1;}
+    }
+</style>
+</head>
+
+<body>
+    <div id="box1">
+        <div id="mask1">mask1</div>
+    </div>
+    <div id="box2">
+        <div id="mask2">mask2</div>
+    </div>
+</body>
+</html>

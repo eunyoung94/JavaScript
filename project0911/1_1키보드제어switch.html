@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #wrapper{
+        background-image: url(https://i.pinimg.com/originals/8c/cc/44/8ccc4411b0af296b7cc46c53e76f35d2.jpg);
+        background-size: 1024px 768px;
+        background-position:0px 0px;
+        width:1024px;
+        height:768px;
+        margin:auto;
+        position: relative;
+        overflow : hidden;
+    }
+    #bird{
+        width:80px;
+        height:100px;
+        position:absolute;
+        left: 100px;
+        top:50px;
+    }
+</style>
+
+<script>
+    function joystick(){
+        console.log("당신이 누른 키보드의 1:1 아스키 코드값은 : ",event.keyCode);
+        switch(event.keyCode){
+            case 37 : moveLeft();break;
+            case 38 : moveUp();break;
+            case 39 : moveRight();break;
+            case 40 : moveDown();break;
+        }
+    }
+    var x=100;
+    var y=50;
+    var bg=0;
+
+    function moveLeft(){
+        x=x-5;
+        console.log("x의값은?:",x);
+        document.getElementById("bird").style.left=x+"px"
+    }
+
+    function moveRight(){
+        x=x+5;
+        console.log("x의값은?:",x);
+        document.getElementById("bird").style.left=x+"px"
+    }
+
+    function moveDown(){
+        y=y+5;
+        console.log("y의값은?:",y);
+        document.getElementById("bird").style.top=y+"px"
+    }
+
+    function moveUp(){
+        y=y-5;
+        console.log("y의값은?:",y);
+        document.getElementById("bird").style.top=y+"px"
+    }
+    function moveBg(){
+        bg--;
+        document.getElementById("wrapper").style.backgroundPosition=bg+"px 0px";
+    }
+    function auto(){
+        setInterval("moveBg()",10);
+    }
+</script>
+
+</head>
+<body onkeydown="joystick()">
+    <audio controls>
+        <source src="../sound/bgm.mp3"typd="audio/mpeg">
+    </audio>
+    <button onclick="auto()">배경테스트용도</button>
+    <div id="wrapper">
+        <img id="bird" src="../images/마리오.png"/>
+    </div>
+</body>
+</html>

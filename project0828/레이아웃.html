@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Document</title>
+<style>
+#wrapper{
+	width:500px;
+	height:500px;
+	margin:auto;
+}
+/*wrapper안에 가둬져 있기때문에 px로 정의 안해도된다 .*/
+#content1{
+	width:50%;
+	height:400px;
+	background:#B4C3ff;
+	float:left;
+}
+#content2{
+	width:50%;
+	height:400px;
+	background:#cc33cc;
+	float:left;
+}
+#content3{
+	width:100%;
+	height:100px;
+	background:black;
+	clear:left;/*float으로 생긴 빈틈으로 들어가지 않게 하는 속성*/
+}
+	background:yellow;
+</style>
+</head>
+	<body>
+		<pre>
+			<h3>float과 clear에 대해 학습한다. </h3>
+		</pre>
+			<div id="wrapper">
+				<div id="content1">좌측영역</div>
+				<div id="content2">우측영역</div>
+				<div id="content3">푸터영역</div>
+			</div>
+	</body>
+</html>

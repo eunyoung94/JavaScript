@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+var wrapper;
+var mario;
+var flag=false;
+function follow(){
+    if(flag){
+        getPos();
+    }
+}
+function getPos(){
+
+    var x=event.clientX;
+    var y=event.clientY;
+
+    var w=parseInt(mario.style.width);
+    var h=parseInt(mario.style.height);
+    
+    mario.style.left=x-(w/2)+"px";
+    mario.style.top=y-(h/2)+"px";
+
+}
+function check(){
+    flag=!flag;
+    if(flag){
+        mario.style.border="10px dotted red";
+    }else{
+        mario.style.border="10px dotted black";
+    }
+}
+function createMario(){
+    mario=document.createElement("img");
+    mario.src="../images/마리오불.png";
+    mario.style.width=100+"px";
+    mario.style.height=80+"px";
+    mario.style.position="absolute";
+    mario.style.border=4+"px solid green";
+    mario.addEventListener("click",function(){
+        check();
+    });
+    wrapper.appendChild(mario);
+}
+function init(){
+    wrapper=document.createElement("div");
+    wrapper.style.width=100+"%";
+    wrapper.style.height=700+"px";
+    wrapper.style.background="gray";
+    wrapper.style.position="relative";
+    document.body.appendChild(wrapper);
+    createMario();
+}
+
+    addEventListener("load",function(){
+        init();
+})
+</script>
+</head>
+
+<body onmousemove="follow()">
+    
+</body>
+</html>
