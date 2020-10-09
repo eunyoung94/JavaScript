@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+    body{
+        position:relative;
+    }
+</style>
+<script>
+var box;    
+var tx;
+var ty;
+let a=0.1;
+var targetX=0;
+var targetY=25;
+
+function init(){
+    tx=document.getElementById("tx");
+    ty=document.getElementById("ty");
+
+    box=document.getElementById("box");
+    box.style.width=100+"px";
+    box.style.height=100+"px";
+    box.style.position="absolute";
+    box.style.background="red";
+    box.style.left=0+"px";
+    box.style.top=30+"px";
+    document.body.appendChild(box);
+
+    var bt=document.querySelector("button");
+    bt.addEventListener("click",function(){
+        setTarget();
+    });
+}
+
+function move(){
+    box.style.left=parseFloat(box.style.left)+a*(targetX-parseFloat(box.style.left))+"px";
+    box.style.top=parseFloat(box.style.top)+a*(targetY-parseFloat(box.style.top))+"px";
+
+    box.innerText="x: "+parseFloat(box.style.left)+"\ny: "+parseFloat(box.style.top);
+
+}
+function setTarget(){
+    targetX=parseFloat(tx.value);
+    targetY=parseFloat(ty.value);
+}
+
+    addEventListener("load",function(){
+        init();
+        setInterval("move()",50);
+    });
+
+</script>
+</head>
+
+<body>
+    <input type="text"id="tx"placeholder="목표x지점" >
+    <input type="text"id="ty"placeholder="목표y지점" >
+    <button>이동</button>
+    <div id=box></div>
+</body>
+</html>

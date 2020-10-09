@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/lib.js"></script>
+<script>
+    
+    var n=0;
+    var lunch= new Array();
+    lunch[0]="라볶이";
+    lunch[1]="수제비";
+    lunch[2]="부대찌개";
+    lunch[3]="된장찌개";
+    lunch[4]="갈치조림";
+    lunch[5]="삼계탕";
+    lunch[6]="돼지불백";
+
+    window.addEventListener("load",function(){ 
+        var bt=document.querySelector("button");
+        bt.addEventListener("click",function(){ 
+            // h1에 메뉴를 출력!
+           var h1= document.querySelector("h1");
+           h1.innerText=lunch[getRandom(lunch.length-1)];
+        });
+    });
+    
+</script>
+</head>
+<body>
+    <button onclick="play()">점심메뉴</button>
+    <h1>점심메뉴보여주기</h1>
+</body>
+</html>

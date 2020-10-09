@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.addEventListener("load",function(){
+       var box=document.getElementsByName("box");
+        console.log("생성된 div 수는? :"+box.length);
+        for(var i=0;i<box.length;i++){
+            box[i].style.background="green";
+            box[i].style.border="10px solid yellow";
+            box[i].style.width=200+"px";
+            box[i].style.height=200+"px";
+        }
+    });
+</script>
+<body>
+    
+    <!-- 아이디와 이름 공통점과 차이점
+    공통점: 문서내의 수많은 요소들간의 구분의 식별자 
+    ex) 대한민국 국민들에게 이름이 있는것과 같음 
+    차이점: 현실에서 이름은 동명이인이 존재함. 유일한 식별자로선 부족
+    중복없이 사용하려면 id를 사용해야함, 
+    name의 특징: 이름이 같은경우 내부적으로 배열로 인식한다. 
+    -->
+    <div name="box"></div>
+    <div name="box"></div>
+    <div name="box"></div>
+</body>
+</html>

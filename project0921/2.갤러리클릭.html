@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+#wrapper{
+    width: 500px;
+    height: 450px;
+    background:midnightblue;
+    margin:auto;
+}
+#mask{
+    width: 500px;
+    height:400px;
+    background:lightseagreen;
+    overflow:hidden;
+}
+#load{
+    text-align: center;
+    font-size:30px;
+}
+a{
+    text-decoration: none;
+    color:darkturquoise;
+}
+#box{
+    width:4000px;
+    height: 400px;
+    background:lime;
+}
+</style>
+<script>
+let a=0.1;
+var box;
+var targetX=0;
+function init(){
+    box=document.getElementById("box");
+    box.style.position="relative";
+    box.style.left=0+"px";
+
+    for(var i=1;i<=8;i++){
+    var img=document.createElement("img");
+    img.src="../images/"+i+".jpg";
+    img.style.width=500+"px";
+    img.style.height=400+"px";
+    box.appendChild(img);
+    }
+}
+window.addEventListener("load",function(){ 
+    init();
+    setInterval("move()",10);
+});
+
+function setTarget(x){
+    targetX=x;
+}
+function move(){
+    // 박스위치는 = 현재박스 + 비율*(목표지점-현재박스위치)
+    box.style.left=parseFloat(box.style.left)+a*(targetX-parseFloat(box.style.left))+"px";
+}
+
+</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="mask">
+            <div id="box"></div>
+        </div>
+        <div id="load">
+            <a href="javascript:setTarget(0)">●</a>
+            <a href="javascript:setTarget(-500)">●</a>
+            <a href="javascript:setTarget(-1000)">●</a>
+            <a href="javascript:setTarget(-1500)">●</a>
+            <a href="javascript:setTarget(-2000)">●</a>
+            <a href="javascript:setTarget(-2500)">●</a>
+            <a href="javascript:setTarget(-3000)">●</a>
+            <a href="javascript:setTarget(-3500)">●</a>
+        </div>
+    </div>
+</body>
+</html>
