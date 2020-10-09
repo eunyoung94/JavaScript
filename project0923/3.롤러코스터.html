@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .wrapper{
+        width: 1200px;
+        height: 700px;
+        overflow: hidden;
+    }
+    #content{
+        width: 1000px;
+        height: 100%;
+        float: left;
+        position: relative;
+        background:url("../images/롤러코스터.jpg");
+        background-size: 1000px 700px;
+    }
+    #target{
+        width: 200px;
+        height: 100%;
+        float: left;
+        background:chartreuse;
+    }
+</style>
+<script>
+    var train;
+    var dot;
+    var dotArray=new Array();
+    var index=0;
+    var content;
+    var target;
+
+    function getTrain(){
+        train=document.createElement("img");
+        train.src="../images/기차.png";
+        train.style.width=50+"px";
+        train.style.position="absolute";
+        content.appendChild(train);
+    }
+    function setPoint(){
+        var x= event.clientX;
+        var y=event.clientY;
+
+        dot=document.createElement("div");
+        dot.style.width=5+"px";
+        dot.style.height=5+"px";
+        dot.style.background="red";
+        dot.style.position="absolute";
+        dot.style.left=x+"px";
+        dot.style.top=y+"px";
+        content.appendChild(dot);
+
+        var point=[x,y];
+        dotArray.push(point);
+
+        setInfo();
+    }
+
+    function setInfo(){
+        var str="";
+        for(var i=0;i<dotArray.length;i++){
+            var point=dotArray[i]
+            str += "["+point[0]+","+point[1]+"]</br>";
+        }
+            target.innerHTML=str;
+    }
+
+    function move(){
+        train.style.left=dotArray[index][0]+"px";
+        train.style.top=dotArray[index][1]+"px";
+        if(index<dotArray.length){
+            index++;
+        }
+    }
+    function auto(){
+        setInterval("move()",20);
+    }
+    function init(){
+        content=document.getElementById("content");
+        target=document.getElementById("target");
+        getTrain();
+    }
+    addEventListener("load",function(){ 
+        init();
+    });
+</script>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="content" onclick="setPoint()"></div>
+        <div id="target"></div>
+    </div>
+    <button onclick="move()">수동</button>
+    <button onclick="auto()">자동</button>
+</body>
+</html>

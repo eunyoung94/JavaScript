@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+    #wrapper{
+        width: 700px;
+        height:600px;
+        border:3px solid red;
+        margin: auto;
+        position:relative;
+    }
+</style>
+<script src="../js/lib.js"></script>
+<script>
+    var bar;
+    var wrapper;
+    var targetH;
+    var index;
+    var a=0.1;
+    var stylewidth=65;
+    var barArray=new Array();
+    var colorArray=["red","orange","yellow","green","blue","navy","purple"];
+    function createBar(){
+        for(var i=0;i<7;i++){
+        bar=document.createElement("div");
+        bar.style.width=stylewidth+"px";
+        bar.style.left=(stylewidth*i)+"px";
+        bar.style.height=20+"px";
+        bar.style.position="absolute";
+        bar.style.background=colorArray[i];
+        wrapper.appendChild(bar);        
+        barArray.push(bar);
+        }
+    }
+    function move(){
+        targetH=getRandomBetween(20,500);
+        index=getRandom(barArray.length-1);
+        barArray[index].style.height=parseFloat(barArray[index].style.height)+a*(targetH-parseFloat(barArray[index].style.height))+"px";
+        barArray[index].innerText=parseFloat(barArray[index].style.height);
+    }
+
+    function init(){
+        wrapper=document.getElementById("wrapper");
+        createBar();
+        setInterval("move()",10);
+    }
+    window.addEventListener("load",function(){
+        init();
+     });
+
+</script>
+</head>
+<body>
+    <div id="wrapper"></div>
+</body>
+</html>
