@@ -1,0 +1,18 @@
+<script>
+function showDay(){
+    // 사용자로부터 원하는 년, 월, 일을 입력받아 그날이 무슨요일인지 출력해주는 프로그램을 작성하세요 
+    var yy=parseInt(prompt("원하는 년도를 입력하세요"));
+    var mm=parseInt(prompt("원하는 월을 입력하세요"));
+    var dd=parseInt(prompt("원하는 날짜를 입력하세요"));
+    var d1=new Date(); //현재 날짜정보를 가진 객체가 생성하는것 
+    d1.setFullYear(yy); //연도조작
+    d1.setMonth(mm-1);//월조작 (0부터 시작하므로)
+    d1.setDate(dd);//일조작
+    
+    var days=["일","월","화","수","목","금","토"];
+    var day=days[d1.getDay()];
+
+    alert("그날은"+yy+"년"+mm+"월"+dd+"일"+day+"요일입니다.");
+}
+showDay();
+    </script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+var arr=new Array();
+class Heart{
+    constructor(x,y,velX){
+        this.span;
+        this.x=x;
+        this.y=y;
+        this.velX=velX;
+        this.createHeart();
+    }
+    createHeart(){
+    this.span=document.createElement("span");
+    this.span.style.left=this.x+"px";
+    this.span.style.top=this.y+"px";
+    this.span.innerText="♥";
+    this.span.style.position="absolute";
+    document.body.appendChild(this.span);
+    }
+    tick(){
+        this.x += this.velX;
+    }
+    render(){
+        this.span.style.left=this.x+"px";
+    }
+}
+function Loading(){
+    for(var i=0;i<arr.length;i++){
+    arr[i].tick();
+    arr[i].render();
+    }
+}
+addEventListener("load",function(){
+for(var i=0;i<30;i++){
+arr.push(new Heart(0,i*10,i*i+10));
+}   
+setInterval("Loading()",100);
+    });
+</script>
+</head>
+<body>
+    
+</body>
+</html>

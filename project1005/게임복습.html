@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<style>
+body{
+    margin:0px;
+}
+#wrapper{
+    width: 100%;
+    height:700px;
+    background-image:url(../images/game/bg.png);
+    overflow: hidden;
+    position:relative;
+}
+</style>
+<script src="Hero.js"></script>
+<script src="bullet.js"></script>
+<script src="Enemy.js"></script>
+<script>
+// 주인공
+var wrapper;
+var hero;
+var bullet;
+var bgY=0;
+var bulletArray=new Array();
+var bombArray=new Array();
+var enemyArray=new Array();
+var enemyImg=["e1.png","e2.png","e3.png","e4.png","e5.png"]
+function createHero(){//(x,y,width,height,velX, velY)
+    hero= new Hero((screen.width/2)-40,550,80,65,0,0);
+}
+function bgEffect(){
+    bgY++;
+    wrapper.style.backgroundPosition="0px "+bgY+"px";
+}
+function createBullet(){//(src, x, y, width, height, velX, velY)
+    var bullet=new Bullet("../images/game/ball.png",hero.x+(hero.width/2) - 12, hero.y,25,25,0, -10);
+    var audio=document.createElement("audio");
+    audio.src="../images/game/sound/fire.wav";
+    audio.play();
+    bulletArray.push(bullet);
+}
+function createBomb(){
+    var bomb = new Bullet("../images/game/missile.png", hero.x+(hero.width/2) - 40, hero.y, 80, 120, 0, -4);
+    bombArray.push(bomb); 
+    var audio=document.createElement("audio");
+    audio.src="../images/game/sound/bomb.wav";
+    audio.play();
+}
+function createEnemy(){
+    for(var a=0;a<5;a++){
+        for(var i=0;i<20;i++){
+           var en=new Enemy("../images/game/"+enemyImg[a],100+(i*90),50+(a*70),75,65,0,0);
+        enemyArray.push(en);
+        }
+    }
+}
+// function backgroundBg(){
+//     var audio=document.createElement("audio");
+//     audio.src="../images/game/sound/bgm.mp3";
+//     audio.loop="yes";
+//     audio.play();
+// }
+function gameLoop(){
+    hero.tick();
+    hero.render();
+
+    for(var i=0;i<bulletArray.length;i++){
+        bulletArray[i].tick();
+        bulletArray[i].render();
+    }
+    for(var i=0;i<enemyArray.length;i++){
+        enemyArray[i].tick();
+        enemyArray[i].render();
+    }
+    for(var i=0;i<bombArray.length;i++){
+        bombArray[i].tick();
+        bombArray[i].render();
+    }
+    bgEffect();
+}
+    addEventListener("load",function(){
+        wrapper = document.getElementById("wrapper");
+        document.body.addEventListener("keydown",function(e){
+            var key=e.keyCode;
+            switch(key){
+                case 37:hero.velX=-5;break; //왼쪽
+                case 39:hero.velX=5;break; //오른쪽
+                case 38:hero.velY=-5;break;//위
+                case 40:hero.velY=5;break;//아래
+                case 32:createBullet();break;//총알발사 space;
+                case 65:createBomb();break;//폭탄발사a키
+            }
+        });
+        document.body.addEventListener("keyup",function(e){
+            var key=e.keyCode;
+            switch(key){
+                case 37:hero.velX=0;break; //왼쪽
+                case 39:hero.velX=0;break; //오른쪽
+                case 38:hero.velY=0;break;//위
+                case 40:hero.velY=0;break;//아래
+            }
+        });
+        // backgroundBg();
+        createHero();
+        createEnemy();
+        setInterval("gameLoop()",1);
+     });
+</script>
+</head>
+<body>
+    <audio id="od" src="../images/game/sound/bgm.mp3" controls autoplay muted="muted"></audio>
+    <div id="wrapper"></div>
+</body>
+</html>
